@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wozny.PW.CORE
 {
-    public enum DriveType
+    public enum HardDriveType
     {
         HDD, SSD
     }

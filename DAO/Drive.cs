@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Wozny.PW.CORE;
 using Wozny.PW.INTERFACES;
+using Wozny.PW.CORE;
 
 namespace Wozny.PW.DAO
 {
-    class Drive: IDrive
+    public class Drive: IDrive
     {
-        public DriveType Type { get; set; }
+        public HardDriveType Type { get; set; }
         public int Capacity { get; set; }
 
-        public Drive(DriveType type, int capacity)
+        public Drive(HardDriveType type, int capacity)
         {
             Type = type;
             Capacity = capacity;

@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DriveType.cs" />
+    <Compile Include="HardDriveType.cs" />
     <Compile Include="ProducerName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

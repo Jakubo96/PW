@@ -7,7 +7,7 @@ using Wozny.PW.INTERFACES;
 
 namespace Wozny.PW.DAO
 {
-    class Product : IProduct
+    public class Product : IProduct
     {
         public IProducer Producer { get; set; }
         public string Model { get; set; }
@@ -29,7 +29,7 @@ namespace Wozny.PW.DAO
         public override string ToString()
         {
             return
-                $"{nameof(Producer)}: {Producer}, {nameof(Model)}: {Model}, {nameof(Price)}: {Price}, {nameof(Processor)}: {Processor}, {nameof(ScreenSize)}: {ScreenSize}, {nameof(Drive)}: {Drive}";
+                $"{nameof(Producer)}: {Producer.Name}, {nameof(Model)}: {Model}, {nameof(Price)}: {Price}, {nameof(Processor)}: {Processor}, {nameof(ScreenSize)}: {ScreenSize}, {nameof(Drive)}: {Drive}";
         }
     }
 }

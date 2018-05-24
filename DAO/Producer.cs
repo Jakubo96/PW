@@ -8,7 +8,7 @@ using Wozny.PW.INTERFACES;
 
 namespace Wozny.PW.DAO
 {
-    class Producer: IProducer
+    public class Producer: IProducer
     {
         public ProducerName Name { get; set; }
         public string Country { get; set; }

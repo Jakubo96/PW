@@ -44,9 +44,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAO\DAO.csproj">
-      <Project>{AEDF2BD0-E28D-47B0-95D1-077D3EA5A050}</Project>
-      <Name>DAO</Name>
+    <ProjectReference Include="..\DAOMock2\DAOMock2.csproj">
+      <Project>{1e36d86f-0d55-4656-9435-d0788176a528}</Project>
+      <Name>DAOMock2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAOMock\DAOMock.csproj">
+      <Project>{21ed444c-98b6-4c79-83a1-ef75de179d9c}</Project>
+      <Name>DAOMock</Name>
     </ProjectReference>
     <ProjectReference Include="..\INTERFACES\INTERFACES.csproj">
       <Project>{9C29644A-1A57-479D-BACD-5EA35743975F}</Project>

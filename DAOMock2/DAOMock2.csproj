@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AEDF2BD0-E28D-47B0-95D1-077D3EA5A050}</ProjectGuid>
+    <ProjectGuid>{1E36D86F-0D55-4656-9435-D0788176A528}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Wozny.PW.DAO</RootNamespace>
-    <AssemblyName>DAO</AssemblyName>
+    <RootNamespace>Wozny.PW.DAOMock2</RootNamespace>
+    <AssemblyName>DAOMock2</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,15 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Drive.cs" />
-    <Compile Include="Producer.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="DAOMock2Impl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CORE\CORE.csproj">
-      <Project>{407af60a-37f1-479f-8ee4-f212ae98e749}</Project>
+      <Project>{407AF60A-37F1-479F-8EE4-F212AE98E749}</Project>
       <Name>CORE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{AEDF2BD0-E28D-47B0-95D1-077D3EA5A050}</Project>
+      <Name>DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\INTERFACES\INTERFACES.csproj">
       <Project>{9C29644A-1A57-479D-BACD-5EA35743975F}</Project>
