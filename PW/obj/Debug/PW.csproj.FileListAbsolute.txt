@@ -1,0 +1,15 @@
+C:\Users\jwozny\Desktop\PW\PW\bin\Debug\PW.exe.config
+C:\Users\jwozny\Desktop\PW\PW\bin\Debug\PW.exe
+C:\Users\jwozny\Desktop\PW\PW\bin\Debug\PW.pdb
+C:\Users\jwozny\Desktop\PW\PW\obj\Debug\PW.csprojAssemblyReference.cache
+C:\Users\jwozny\Desktop\PW\PW\obj\Debug\MainWindow.g.cs
+C:\Users\jwozny\Desktop\PW\PW\obj\Debug\App.g.cs
+C:\Users\jwozny\Desktop\PW\PW\obj\Debug\PW_MarkupCompile.cache
+C:\Users\jwozny\Desktop\PW\PW\obj\Debug\PW_MarkupCompile.lref
+C:\Users\jwozny\Desktop\PW\PW\obj\Debug\MainWindow.baml
+C:\Users\jwozny\Desktop\PW\PW\obj\Debug\PW.g.resources
+C:\Users\jwozny\Desktop\PW\PW\obj\Debug\PW.Properties.Resources.resources
+C:\Users\jwozny\Desktop\PW\PW\obj\Debug\PW.csproj.GenerateResource.cache
+C:\Users\jwozny\Desktop\PW\PW\obj\Debug\PW.csproj.CoreCompileInputs.cache
+C:\Users\jwozny\Desktop\PW\PW\obj\Debug\PW.exe
+C:\Users\jwozny\Desktop\PW\PW\obj\Debug\PW.pdb
