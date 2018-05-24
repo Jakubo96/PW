@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Wozny.PW.INTERFACES
 {
-    public class Class1
+    public interface IDAO
     {
+        IList<IProduct> Products { get; }
+        IList<IProducer> Producers { get; }
     }
 }

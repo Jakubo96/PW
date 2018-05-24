@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "PW\UI.csproj", "{4412A2E4-DECC-4419-B7C0-CA89976EF97D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_UI", "PW\WPF_UI.csproj", "{4412A2E4-DECC-4419-B7C0-CA89976EF97D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{AB766A23-4402-4881-AD85-1D8585461275}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CORE", "CORE\CORE.csproj", "{407AF60A-37F1-479F-8EE4-F212AE98E749}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INTERFACES", "INTERFACES\INTERFACES.csproj", "{9C29644A-1A57-479D-BACD-5EA35743975F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{3E19C8D7-D050-494B-A980-EDB9D79BEA87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +85,18 @@ Global
 		{9C29644A-1A57-479D-BACD-5EA35743975F}.Release|x64.Build.0 = Release|Any CPU
 		{9C29644A-1A57-479D-BACD-5EA35743975F}.Release|x86.ActiveCfg = Release|Any CPU
 		{9C29644A-1A57-479D-BACD-5EA35743975F}.Release|x86.Build.0 = Release|Any CPU
+		{3E19C8D7-D050-494B-A980-EDB9D79BEA87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E19C8D7-D050-494B-A980-EDB9D79BEA87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E19C8D7-D050-494B-A980-EDB9D79BEA87}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3E19C8D7-D050-494B-A980-EDB9D79BEA87}.Debug|x64.Build.0 = Debug|Any CPU
+		{3E19C8D7-D050-494B-A980-EDB9D79BEA87}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3E19C8D7-D050-494B-A980-EDB9D79BEA87}.Debug|x86.Build.0 = Debug|Any CPU
+		{3E19C8D7-D050-494B-A980-EDB9D79BEA87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E19C8D7-D050-494B-A980-EDB9D79BEA87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E19C8D7-D050-494B-A980-EDB9D79BEA87}.Release|x64.ActiveCfg = Release|Any CPU
+		{3E19C8D7-D050-494B-A980-EDB9D79BEA87}.Release|x64.Build.0 = Release|Any CPU
+		{3E19C8D7-D050-494B-A980-EDB9D79BEA87}.Release|x86.ActiveCfg = Release|Any CPU
+		{3E19C8D7-D050-494B-A980-EDB9D79BEA87}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

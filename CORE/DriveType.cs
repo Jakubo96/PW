@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wozny.PW.DAO
+namespace Wozny.PW.CORE
 {
-    public class Class1
+    public enum DriveType
     {
+        HDD, SSD
     }
 }

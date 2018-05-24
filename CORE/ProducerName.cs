@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wozny.PW.BL
+namespace Wozny.PW.CORE
 {
-    public class Class1
+    public enum ProducerName
     {
+        Dell, HP, Razer, Asus, Acer, Apple, Lenovo, Sony
     }
 }

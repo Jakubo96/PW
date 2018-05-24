@@ -40,8 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DAOMock.cs" />
+    <Compile Include="Drive.cs" />
+    <Compile Include="Producer.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CORE\CORE.csproj">
+      <Project>{407AF60A-37F1-479F-8EE4-F212AE98E749}</Project>
+      <Name>CORE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\INTERFACES\INTERFACES.csproj">
+      <Project>{9C29644A-1A57-479D-BACD-5EA35743975F}</Project>
+      <Name>INTERFACES</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
