@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -16,9 +17,22 @@ namespace Wozny.PW.BL
         {
             set
             {
-                var assembly = Assembly.Load(value);
+                Assembly assembly;
+                try
+                {
+                    assembly = Assembly.Load(value);
+                }
+                catch (FileNotFoundException)
+                {
+                    throw new FileNotFoundException($"Assembly {value} doesn\'t exist");
+                }
+
                 var types = assembly.GetTypes();
-                Console.WriteLine(assembly);
+                if (types.Length == 0)
+                {
+                    throw new Exception($"No types declared inside the {value}");
+                }
+
                 _dao = Activator.CreateInstance(types[0]) as IDAO;
             }
         }
