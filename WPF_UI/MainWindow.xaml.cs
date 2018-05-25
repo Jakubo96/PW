@@ -13,9 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Wozny.PW.BL;
-using Wozny.PW.INTERFACES;
 
-namespace PW
+namespace WOZNY.PW.WPF_UI
 {
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
@@ -30,7 +29,8 @@ namespace PW
 
             var products = BusinessLogic.Instance.GetAllProducts();
             var producers = BusinessLogic.Instance.GetAllProducers();
-            Console.WriteLine(products);
+
+
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Wozny.PW.BL;
+using Wozny.PW.CORE;
 using Wozny.PW.INTERFACES;
 
 namespace UI
@@ -14,7 +15,8 @@ namespace UI
     {
         static void Main(string[] args)
         {
-            InjectDllNameToBL();
+            ConfigInjector.InjectDllNameToBL();
+
             var products = BusinessLogic.Instance.GetAllProducts();
             var producers = BusinessLogic.Instance.GetAllProducers();
 
@@ -22,12 +24,6 @@ namespace UI
             DisplayAllProducers(producers);
         }
 
-        private static void InjectDllNameToBL()
-        {
-            var settingsReader = new AppSettingsReader();
-            var dllName = settingsReader.GetValue("dllName", typeof(string)) as string;
-            BusinessLogic.Instance.DllName = dllName;
-        }
 
         private static void DisplayAllProducts(IEnumerable<IProduct> products)
         {

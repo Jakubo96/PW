@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Wozny.PW.WPF_UI
+namespace WOZNY.PW.WPF_UI
 {
     /// <summary>
     /// Logika interakcji dla klasy App.xaml

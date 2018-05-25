@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_UI", "PW\WPF_UI.csproj", "{4412A2E4-DECC-4419-B7C0-CA89976EF97D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{AB766A23-4402-4881-AD85-1D8585461275}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{AEDF2BD0-E28D-47B0-95D1-077D3EA5A050}"
@@ -19,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAOMock2", "DAOMock2\DAOMoc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAOMock", "DAOMock\DAOMock.csproj", "{21ED444C-98B6-4C79-83A1-EF75DE179D9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_UI", "WPF_UI\WPF_UI.csproj", "{31C761A2-C78C-4475-A894-4593FA095B1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,18 +29,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4412A2E4-DECC-4419-B7C0-CA89976EF97D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4412A2E4-DECC-4419-B7C0-CA89976EF97D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4412A2E4-DECC-4419-B7C0-CA89976EF97D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{4412A2E4-DECC-4419-B7C0-CA89976EF97D}.Debug|x64.Build.0 = Debug|Any CPU
-		{4412A2E4-DECC-4419-B7C0-CA89976EF97D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{4412A2E4-DECC-4419-B7C0-CA89976EF97D}.Debug|x86.Build.0 = Debug|Any CPU
-		{4412A2E4-DECC-4419-B7C0-CA89976EF97D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4412A2E4-DECC-4419-B7C0-CA89976EF97D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4412A2E4-DECC-4419-B7C0-CA89976EF97D}.Release|x64.ActiveCfg = Release|Any CPU
-		{4412A2E4-DECC-4419-B7C0-CA89976EF97D}.Release|x64.Build.0 = Release|Any CPU
-		{4412A2E4-DECC-4419-B7C0-CA89976EF97D}.Release|x86.ActiveCfg = Release|Any CPU
-		{4412A2E4-DECC-4419-B7C0-CA89976EF97D}.Release|x86.Build.0 = Release|Any CPU
 		{AB766A23-4402-4881-AD85-1D8585461275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AB766A23-4402-4881-AD85-1D8585461275}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB766A23-4402-4881-AD85-1D8585461275}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -125,6 +113,18 @@ Global
 		{21ED444C-98B6-4C79-83A1-EF75DE179D9C}.Release|x64.Build.0 = Release|Any CPU
 		{21ED444C-98B6-4C79-83A1-EF75DE179D9C}.Release|x86.ActiveCfg = Release|Any CPU
 		{21ED444C-98B6-4C79-83A1-EF75DE179D9C}.Release|x86.Build.0 = Release|Any CPU
+		{31C761A2-C78C-4475-A894-4593FA095B1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31C761A2-C78C-4475-A894-4593FA095B1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31C761A2-C78C-4475-A894-4593FA095B1B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{31C761A2-C78C-4475-A894-4593FA095B1B}.Debug|x64.Build.0 = Debug|Any CPU
+		{31C761A2-C78C-4475-A894-4593FA095B1B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{31C761A2-C78C-4475-A894-4593FA095B1B}.Debug|x86.Build.0 = Debug|Any CPU
+		{31C761A2-C78C-4475-A894-4593FA095B1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31C761A2-C78C-4475-A894-4593FA095B1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31C761A2-C78C-4475-A894-4593FA095B1B}.Release|x64.ActiveCfg = Release|Any CPU
+		{31C761A2-C78C-4475-A894-4593FA095B1B}.Release|x64.Build.0 = Release|Any CPU
+		{31C761A2-C78C-4475-A894-4593FA095B1B}.Release|x86.ActiveCfg = Release|Any CPU
+		{31C761A2-C78C-4475-A894-4593FA095B1B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

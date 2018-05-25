@@ -46,12 +46,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BL\BL.csproj">
       <Project>{AB766A23-4402-4881-AD85-1D8585461275}</Project>
       <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CORE\CORE.csproj">
+      <Project>{407AF60A-37F1-479F-8EE4-F212AE98E749}</Project>
+      <Name>CORE</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAOMock2\DAOMock2.csproj">
       <Project>{1e36d86f-0d55-4656-9435-d0788176a528}</Project>
