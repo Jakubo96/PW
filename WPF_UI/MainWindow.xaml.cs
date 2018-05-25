@@ -31,8 +31,8 @@ namespace WOZNY.PW.WPF_UI
 
             InitializeComponent();
 
-            ProductsList.DataContext = new ProductsListVM();
-            ProducersList.DataContext = new ProducersListVM();
+            ProductsTab.DataContext = new ProductsListVM();
+            ProducersTab.DataContext = new ProducersListVM();
         }
     }
 }

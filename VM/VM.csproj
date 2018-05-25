@@ -30,8 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,11 +46,16 @@
     <Compile Include="ProductsListVM.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Command.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BL\BL.csproj">
       <Project>{AB766A23-4402-4881-AD85-1D8585461275}</Project>
       <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{AEDF2BD0-E28D-47B0-95D1-077D3EA5A050}</Project>
+      <Name>DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\INTERFACES\INTERFACES.csproj">
       <Project>{9C29644A-1A57-479D-BACD-5EA35743975F}</Project>
