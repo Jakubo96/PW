@@ -29,9 +29,64 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
-                    <TextBlock Grid.Column="2" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center"
-                               DataContext="{Binding ElementName=productsList, Path=SelectedItem}"
-                               Text="{Binding Model}" />
+                    <Grid Grid.Column="2" DataContext="{Binding ElementName=productsList, Path=SelectedItem}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Label Content="Producer:" HorizontalAlignment="Center" VerticalAlignment="Center"
+                               FontSize="24" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Producer.Name}"
+                                   HorizontalAlignment="Center" FontSize="20"
+                                   VerticalAlignment="Center" />
+                        <Label Content="Model:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="24"
+                               VerticalAlignment="Center" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Model}" HorizontalAlignment="Center"
+                                   FontSize="20"
+                                   VerticalAlignment="Center" />
+                        <Label Content="Price:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" FontSize="24"
+                               VerticalAlignment="Center" />
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=Price, StringFormat={}{0} zł}"
+                                   HorizontalAlignment="Center"
+                                   FontSize="20"
+                                   VerticalAlignment="Center" />
+                        <Label Content="Processor:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"
+                               FontSize="24"
+                               VerticalAlignment="Center" />
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Processor}" HorizontalAlignment="Center"
+                                   FontSize="20"
+                                   VerticalAlignment="Center" />
+                        <Label Content="Screen size:" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center"
+                               FontSize="24"
+                               VerticalAlignment="Center" />
+                        <TextBlock Grid.Row="4" Grid.Column="1"
+                                   HorizontalAlignment="Center" FontSize="20"
+                                   VerticalAlignment="Center">
+                            <TextBlock.Text>
+                                <Binding Path="ScreenSize" StringFormat="{}{0}&quot;" />
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <Label Content="Drive:" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" FontSize="24"
+                               VerticalAlignment="Center" />
+                        <TextBlock Grid.Row="5" Grid.Column="1"
+                                   HorizontalAlignment="Center" FontSize="20"
+                                   VerticalAlignment="Center">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}; {1}GB">
+                                    <Binding Path="Drive.Type" />
+                                    <Binding Path="Drive.Capacity" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="Producers">
@@ -50,9 +105,48 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
-                    <TextBlock Grid.Column="2" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center"
-                               DataContext="{Binding ElementName=producersList, Path=SelectedItem}"
-                               Text="{Binding Name}" />
+                    <Grid Grid.Column="2" DataContext="{Binding ElementName=producersList, Path=SelectedItem}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Label Content="Name:" HorizontalAlignment="Center" VerticalAlignment="Center"
+                               FontSize="24" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Name}"
+                                   HorizontalAlignment="Center" FontSize="20"
+                                   VerticalAlignment="Center" />
+                        <Label Content="Country:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="24"
+                               VerticalAlignment="Center" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Country}" HorizontalAlignment="Center"
+                                   FontSize="20"
+                                   VerticalAlignment="Center" />
+                        <Label Content="Headquarters:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" FontSize="24"
+                               VerticalAlignment="Center" />
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=Headquarters}"
+                                   HorizontalAlignment="Center"
+                                   FontSize="20"
+                                   VerticalAlignment="Center" />
+                        <Label Content="Founded:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"
+                               FontSize="24"
+                               VerticalAlignment="Center" />
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Founded}" HorizontalAlignment="Center"
+                                   FontSize="20"
+                                   VerticalAlignment="Center" />
+                        <Label Content="CEO:" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center"
+                               FontSize="24"
+                               VerticalAlignment="Center" />
+                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding CEO}" HorizontalAlignment="Center"
+                                   FontSize="20"
+                                   VerticalAlignment="Center" />
+                      
+                    </Grid>
                 </Grid>
             </TabItem>
         </TabControl>
