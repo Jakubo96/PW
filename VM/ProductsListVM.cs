@@ -38,7 +38,7 @@ namespace WOZNY.PW.VM
             if (SelectedProduct != null)
                 Products.Remove(SelectedProduct);
             else
-                MessageBox.Show("Nie wybrano żadnego elementu");
+                MessageBox.Show("Nie wybrano żadnego elementu", "Uwaga!");
         }
     }
 }

@@ -40,7 +40,7 @@ namespace WOZNY.PW.VM
             if (SelectedProducer != null)
                 Producers.Remove(SelectedProducer);
             else
-                MessageBox.Show("Nie wybrano żadnego elementu");
+                MessageBox.Show("Nie wybrano żadnego elementu", "Uwaga!");
         }
     }
 }
