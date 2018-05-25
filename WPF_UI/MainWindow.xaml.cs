@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,15 +23,15 @@ namespace WOZNY.PW.WPF_UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public IEnumerable<IProduct> Products { get; }
-        public IEnumerable<IProducer> Producers { get; }
+        public ObservableCollection<IProduct> Products { get; }
+        public ObservableCollection<IProducer> Producers { get; }
 
         public MainWindow()
         {
             ConfigInjector.InjectDllNameToBL();
 
-            Products = BusinessLogic.Instance.GetAllProducts();
-            Producers = BusinessLogic.Instance.GetAllProducers();
+            Products = new ObservableCollection<IProduct>(BusinessLogic.Instance.GetAllProducts());
+            Producers = new ObservableCollection<IProducer>(BusinessLogic.Instance.GetAllProducers());
 
             InitializeComponent();
             DataContext = this;
