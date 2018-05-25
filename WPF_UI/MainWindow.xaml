@@ -14,7 +14,11 @@
                         <ColumnDefinition Width="5" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <DockPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
                         <ListBox HorizontalContentAlignment="Stretch" ItemsSource="{Binding Products}"
                                  Name="ProductsList" SelectedItem="{Binding SelectedProduct}"
                                  DockPanel.Dock="Top">
@@ -36,8 +40,10 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <Button Content="Remove" Command="{Binding RemoveItemCommand}" DockPanel.Dock="Bottom" />
-                    </DockPanel>
+                        <Button Content="Remove" Command="{Binding RemoveItemCommand}" Grid.Row="1" Width="50"
+                                Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5, 5"
+                                Foreground="Red" />
+                    </Grid>
                     <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
                     <Grid Grid.Column="2" DataContext="{Binding ElementName=ProductsList, Path=SelectedItem}">
                         <Grid.ColumnDefinitions>
@@ -106,9 +112,13 @@
                         <ColumnDefinition Width="5" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <DockPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
                         <ListBox HorizontalContentAlignment="Stretch" ItemsSource="{Binding Producers}"
-                                 Name="ProducersList" DockPanel.Dock="Top" SelectedItem="{Binding SelectedProducer}">
+                                 Name="ProducersList" SelectedItem="{Binding SelectedProducer}">
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem">
                                     <Setter Property="Margin" Value="10" />
@@ -120,8 +130,10 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <Button Content="Remove" Command="{Binding RemoveItemCommand}" DockPanel.Dock="Bottom" />
-                    </DockPanel>
+                        <Button Content="Remove" Command="{Binding RemoveItemCommand}" Grid.Row="1" Width="50"
+                                Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5, 5"
+                                Foreground="Red" />
+                    </Grid>
                     <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
                     <Grid Grid.Column="2" DataContext="{Binding ElementName=ProducersList, Path=SelectedItem}">
                         <Grid.ColumnDefinitions>
