@@ -110,6 +110,10 @@
       <Project>{9C29644A-1A57-479D-BACD-5EA35743975F}</Project>
       <Name>INTERFACES</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VM\VM.csproj">
+      <Project>{7AE46123-AF2F-460F-996E-920C410CB7C2}</Project>
+      <Name>VM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

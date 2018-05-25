@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAOMock", "DAOMock\DAOMock.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_UI", "WPF_UI\WPF_UI.csproj", "{31C761A2-C78C-4475-A894-4593FA095B1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VM", "VM\VM.csproj", "{7AE46123-AF2F-460F-996E-920C410CB7C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,6 +127,18 @@ Global
 		{31C761A2-C78C-4475-A894-4593FA095B1B}.Release|x64.Build.0 = Release|Any CPU
 		{31C761A2-C78C-4475-A894-4593FA095B1B}.Release|x86.ActiveCfg = Release|Any CPU
 		{31C761A2-C78C-4475-A894-4593FA095B1B}.Release|x86.Build.0 = Release|Any CPU
+		{7AE46123-AF2F-460F-996E-920C410CB7C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AE46123-AF2F-460F-996E-920C410CB7C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AE46123-AF2F-460F-996E-920C410CB7C2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7AE46123-AF2F-460F-996E-920C410CB7C2}.Debug|x64.Build.0 = Debug|Any CPU
+		{7AE46123-AF2F-460F-996E-920C410CB7C2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7AE46123-AF2F-460F-996E-920C410CB7C2}.Debug|x86.Build.0 = Debug|Any CPU
+		{7AE46123-AF2F-460F-996E-920C410CB7C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AE46123-AF2F-460F-996E-920C410CB7C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AE46123-AF2F-460F-996E-920C410CB7C2}.Release|x64.ActiveCfg = Release|Any CPU
+		{7AE46123-AF2F-460F-996E-920C410CB7C2}.Release|x64.Build.0 = Release|Any CPU
+		{7AE46123-AF2F-460F-996E-920C410CB7C2}.Release|x86.ActiveCfg = Release|Any CPU
+		{7AE46123-AF2F-460F-996E-920C410CB7C2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

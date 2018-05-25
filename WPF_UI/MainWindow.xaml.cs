@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Wozny.PW.BL;
 using Wozny.PW.INTERFACES;
+using WOZNY.PW.VM;
 
 namespace WOZNY.PW.WPF_UI
 {
@@ -23,18 +24,15 @@ namespace WOZNY.PW.WPF_UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<IProduct> Products { get; }
-        public ObservableCollection<IProducer> Producers { get; }
 
         public MainWindow()
         {
             ConfigInjector.InjectDllNameToBL();
 
-            Products = new ObservableCollection<IProduct>(BusinessLogic.Instance.GetAllProducts());
-            Producers = new ObservableCollection<IProducer>(BusinessLogic.Instance.GetAllProducers());
-
             InitializeComponent();
-            DataContext = this;
+
+            ProductsList.DataContext = new ProductsListVM();
+            ProducersList.DataContext = new ProducersListVM();
         }
     }
 }
