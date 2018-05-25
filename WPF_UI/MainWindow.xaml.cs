@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Wozny.PW.BL;
+using Wozny.PW.INTERFACES;
 
 namespace WOZNY.PW.WPF_UI
 {
@@ -21,16 +22,18 @@ namespace WOZNY.PW.WPF_UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        public IEnumerable<IProduct> Products { get; }
+        public IEnumerable<IProducer> Producers { get; }
+
         public MainWindow()
         {
-            InitializeComponent();
-
             ConfigInjector.InjectDllNameToBL();
 
-            var products = BusinessLogic.Instance.GetAllProducts();
-            var producers = BusinessLogic.Instance.GetAllProducers();
+            Products = BusinessLogic.Instance.GetAllProducts();
+            Producers = BusinessLogic.Instance.GetAllProducers();
 
-
+            InitializeComponent();
+            DataContext = this;
         }
     }
 }

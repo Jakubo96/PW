@@ -6,6 +6,55 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Products">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <ListBox HorizontalContentAlignment="Stretch" ItemsSource="{Binding Products}" Name="productsList">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock TextAlignment="Center" FontSize="26">
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0} {1}">
+                                            <Binding Path="Producer.Name" />
+                                            <Binding Path="Model" />
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+                    <TextBlock Grid.Column="2" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center"
+                               DataContext="{Binding ElementName=productsList, Path=SelectedItem}"
+                               Text="{Binding Model}" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Producers">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <ListBox HorizontalContentAlignment="Stretch" ItemsSource="{Binding Producers}"
+                             Name="producersList">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock TextAlignment="Center" FontSize="26" Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+                    <TextBlock Grid.Column="2" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center"
+                               DataContext="{Binding ElementName=producersList, Path=SelectedItem}"
+                               Text="{Binding Name}" />
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

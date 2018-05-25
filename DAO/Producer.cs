@@ -25,6 +25,10 @@ namespace Wozny.PW.DAO
             CEO = ceo;
         }
 
+        public Producer()
+        {
+        }
+
         public override string ToString()
         {
             return $"{nameof(Name)}: {Name}, {nameof(Country)}: {Country}, {nameof(Headquarters)}: {Headquarters}, {nameof(Founded)}: {Founded}, {nameof(CEO)}: {CEO}";

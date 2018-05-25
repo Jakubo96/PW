@@ -26,6 +26,10 @@ namespace Wozny.PW.DAO
             Drive = drive;
         }
 
+        public Product()
+        {
+        }
+
         public override string ToString()
         {
             return
