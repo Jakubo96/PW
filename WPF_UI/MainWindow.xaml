@@ -103,8 +103,24 @@
                         <Label Content="Price:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" FontSize="24"
                                VerticalAlignment="Center" />
                         <WrapPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBox Text="{Binding SelectedProduct.Price}" VerticalAlignment="Center" FontSize="20"
-                                     MinWidth="50" />
+                            <TextBox VerticalAlignment="Center" FontSize="20"
+                                     MinWidth="50">
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <AdornedElementPlaceholder x:Name="textBox" />
+                                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                                <TextBox.Text>
+                                    <Binding Path="SelectedProduct.Price" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <vm:StringToIntValidationRule ValidationStep="RawProposedValue" />
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
                             <Label Content="zł" FontSize="20" />
                         </WrapPanel>
                         <Label Content="Processor:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"
