@@ -16,9 +16,23 @@ namespace WOZNY.PW.VM
 {
     public class ProductsListVM : INotifyPropertyChanged
     {
-        public IProduct SelectedProduct { get; set; }
+        private IProduct _selectedProduct;
+
+        public IProduct SelectedProduct
+        {
+            get => _selectedProduct;
+            set
+            {
+                _selectedProduct = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Visibility"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedProduct"));   
+            }
+        }
+
         public ObservableCollection<IProduct> Products { get; }
         public ICommand RemoveItemCommand => new Command(RemoveItem);
+
+        public string Visibility => SelectedProduct == null ? "Hidden" : "Visible";
 
         public ProductsListVM()
         {
@@ -39,6 +53,11 @@ namespace WOZNY.PW.VM
                 Products.Remove(SelectedProduct);
             else
                 MessageBox.Show("Nie wybrano żadnego elementu", "Uwaga!");
+        }
+
+        private void ShowState()
+        {
+            MessageBox.Show("tst", "Info");
         }
     }
 }

@@ -17,9 +17,21 @@ namespace WOZNY.PW.VM
 {
     public class ProducersListVM : INotifyPropertyChanged
     {
-        public IProducer SelectedProducer { get; set; }
+        private IProducer _selectedProducer;
+        public IProducer SelectedProducer
+        {
+            get => _selectedProducer;
+            set
+            {
+                _selectedProducer = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Visibility"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedProducer"));
+            }
+        }
         public ObservableCollection<IProducer> Producers { get; }
         public ICommand RemoveItemCommand => new Command(RemoveItem);
+
+        public string Visibility => SelectedProducer == null ? "Hidden" : "Visible";
 
 
         public ProducersListVM()

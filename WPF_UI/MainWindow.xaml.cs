@@ -34,5 +34,6 @@ namespace WOZNY.PW.WPF_UI
             ProductsTab.DataContext = new ProductsListVM();
             ProducersTab.DataContext = new ProducersListVM();
         }
+
     }
 }
