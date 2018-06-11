@@ -9,16 +9,13 @@ using Wozny.PW.INTERFACES;
 
 namespace Wozny.PW.DAOMock2
 {
-    public class DAOMock2Impl: IDAO
+    public class DAOMock2Impl: DAOAbstract
     {
-        public IList<IProduct> Products { get; } = new List<IProduct>();
-        public IList<IProducer> Producers { get; } = new List<IProducer>();
-
-        public DAOMock2Impl()
+        protected override void InsertStartingRecords()
         {
             var producer1 = new Producer(ProducerName.HP, "USA", "Palo Alto", 1939, "Meg Whitman");
             Producers.Add(producer1);
-            var producer2 = new Producer(ProducerName.Razer, "China", "Taipei", 1989, "Jerry Shen");
+            var producer2 = new Producer(ProducerName.Asus, "China", "Taipei", 1989, "Jerry Shen");
             Producers.Add(producer2);
 
             var drive1 = new Drive(HardDriveType.SSD, 128);

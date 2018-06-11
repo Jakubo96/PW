@@ -9,12 +9,9 @@ using Wozny.PW.INTERFACES;
 
 namespace Wozny.PW.DAOMock
 {
-    public class DAOMockImpl: IDAO
+    public class DAOMockImpl: DAOAbstract
     {
-        public IList<IProduct> Products { get; } = new List<IProduct>();
-        public IList<IProducer> Producers { get; } = new List<IProducer>();
-
-        public DAOMockImpl()
+        protected override void InsertStartingRecords()
         {
             var producer1 = new Producer(ProducerName.Lenovo, "China", "Pekin", 1984, "Yang Yuanqing");
             Producers.Add(producer1);

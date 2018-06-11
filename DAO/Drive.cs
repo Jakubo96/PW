@@ -9,15 +9,19 @@ using Wozny.PW.CORE;
 
 namespace Wozny.PW.DAO
 {
-    public class Drive: IDrive
+    public class Drive : IDrive
     {
-        public HardDriveType Type { get; set; }
-        public int Capacity { get; set; }
+        public HardDriveType? Type { get; set; }
+        public int? Capacity { get; set; }
 
         public Drive(HardDriveType type, int capacity)
         {
             Type = type;
             Capacity = capacity;
+        }
+
+        public Drive()
+        {
         }
 
         public override string ToString()

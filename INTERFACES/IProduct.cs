@@ -10,9 +10,9 @@ namespace Wozny.PW.INTERFACES
     {
         IProducer Producer { get; set; }
         string Model { get; set; }
-        double Price { get; set; }
+        double? Price { get; set; }
         string Processor { get; set; }
-        float ScreenSize { get; set; }
+        float? ScreenSize { get; set; }
         IDrive Drive { get; set; }
     }
 }

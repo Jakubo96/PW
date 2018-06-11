@@ -3,11 +3,34 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:WOZNY.PW.VM;assembly=VM"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:core="clr-namespace:Wozny.PW.CORE;assembly=CORE"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000">
+        Title="Computers" Height="600" Width="1000">
+    <Window.Resources>
+        <ObjectDataProvider MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}"
+                            x:Key="ProducerNames">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="core:ProducerName" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}"
+                            x:Key="DriveTypes">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="core:HardDriveType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
     <Grid>
         <TabControl>
-            <TabItem Header="Products" Name="ProductsTab">
+            <TabItem Header="Products">
+                <TabItem.DataContext>
+                    <vm:ProductsListVM />
+                </TabItem.DataContext>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -40,9 +63,12 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <Button Content="Remove" Command="{Binding RemoveItemCommand}" Grid.Row="1" Width="50"
-                                Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5, 5"
-                                Foreground="Red" />
+                        <WrapPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5, 5">
+                            <Button Content="Remove" Command="{Binding RemoveItemCommand}" Foreground="Red" Height="50"
+                                    Width="50" Margin="5, 5" />
+                            <Button Content="Add" Command="{Binding AddItemCommand}" Foreground="Green" Height="50"
+                                    Width="50" Margin="5, 5" />
+                        </WrapPanel>
                     </Grid>
                     <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
                     <Grid Grid.Column="2" Visibility="{Binding Visibility}">
@@ -61,19 +87,24 @@
                         </Grid.RowDefinitions>
                         <Label Content="Producer:" HorizontalAlignment="Center" VerticalAlignment="Center"
                                FontSize="24" />
-                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedProduct.Producer.Name}"
-                                   HorizontalAlignment="Center" FontSize="20"
-                                   VerticalAlignment="Center" />
+                        <ComboBox Grid.Row="0" Grid.Column="1"
+                                  HorizontalAlignment="Center"
+                                  FontSize="20"
+                                  VerticalAlignment="Center"
+                                  ItemsSource="{Binding Source={StaticResource ProducerNames}}"
+                                  SelectedItem="{Binding SelectedProduct.Producer.Name}" />
                         <Label Content="Model:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="24"
                                VerticalAlignment="Center" />
                         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedProduct.Model}"
                                  HorizontalAlignment="Center"
                                  FontSize="20"
-                                 VerticalAlignment="Center" />
+                                 VerticalAlignment="Center"
+                                 MinWidth="50" />
                         <Label Content="Price:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" FontSize="24"
                                VerticalAlignment="Center" />
                         <WrapPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBox Text="{Binding SelectedProduct.Price}" VerticalAlignment="Center" FontSize="20" />
+                            <TextBox Text="{Binding SelectedProduct.Price}" VerticalAlignment="Center" FontSize="20"
+                                     MinWidth="50" />
                             <Label Content="zł" FontSize="20" />
                         </WrapPanel>
                         <Label Content="Processor:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"
@@ -82,13 +113,14 @@
                         <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedProduct.Processor}"
                                  HorizontalAlignment="Center"
                                  FontSize="20"
-                                 VerticalAlignment="Center" />
+                                 VerticalAlignment="Center" MinWidth="50" />
                         <Label Content="Screen size:" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center"
                                FontSize="24"
                                VerticalAlignment="Center" />
                         <WrapPanel Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBox FontSize="20"
-                                     VerticalAlignment="Center" Text="{Binding SelectedProduct.ScreenSize}" />
+                                     VerticalAlignment="Center" Text="{Binding SelectedProduct.ScreenSize}"
+                                     MinWidth="50" />
                             <Label Content="&quot;" FontSize="20" />
                         </WrapPanel>
                         <Label Content="Drive capacity:" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center"
@@ -96,17 +128,21 @@
                                VerticalAlignment="Center" />
                         <WrapPanel Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBox FontSize="20" Text="{Binding SelectedProduct.Drive.Capacity}"
-                                     VerticalAlignment="Center" />
+                                     VerticalAlignment="Center" MinWidth="50" />
                             <Label FontSize="20" Content="GB" />
                         </WrapPanel>
                         <Label Content="Drive type:" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center"
                                VerticalAlignment="Center" FontSize="24" />
-                        <TextBlock Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   Text="{Binding SelectedProduct.Drive.Type}" FontSize="20" />
+                        <ComboBox Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                  ItemsSource="{Binding Source={StaticResource DriveTypes}}"
+                                  SelectedItem="{Binding SelectedProduct.Drive.Type}" FontSize="20" />
                     </Grid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Producers" Name="ProducersTab">
+            <TabItem Header="Producers">
+                <TabItem.DataContext>
+                    <vm:ProducersListVM />
+                </TabItem.DataContext>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -131,9 +167,13 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <Button Content="Remove" Command="{Binding RemoveItemCommand}" Grid.Row="1" Width="50"
-                                Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5, 5"
-                                Foreground="Red" />
+                        <WrapPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5, 5">
+                            <Button Content="Remove" Command="{Binding RemoveItemCommand}" Foreground="Red" Height="50"
+                                    Width="50" Margin="5, 5" />
+                            <Button Content="Add" Command="{Binding AddItemCommand}" Foreground="Green" Height="50"
+                                    Width="50" Margin="5, 5" />
+                        </WrapPanel>
+
                     </Grid>
                     <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
                     <Grid Grid.Column="2" Visibility="{Binding Visibility}">
@@ -150,35 +190,38 @@
                         </Grid.RowDefinitions>
                         <Label Content="Name:" HorizontalAlignment="Center" VerticalAlignment="Center"
                                FontSize="24" />
-                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedProducer.Name}"
-                                   HorizontalAlignment="Center" FontSize="20"
-                                   VerticalAlignment="Center" />
+                        <ComboBox ItemsSource="{Binding Source={StaticResource ProducerNames}}" Grid.Row="0"
+                                  Grid.Column="1" SelectedItem="{Binding SelectedProducer.Name}"
+                                  HorizontalAlignment="Center" FontSize="20"
+                                  VerticalAlignment="Center" />
                         <Label Content="Country:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"
                                FontSize="24"
                                VerticalAlignment="Center" />
-                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedProducer.Country}" HorizontalAlignment="Center"
-                                   FontSize="20"
-                                   VerticalAlignment="Center" />
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedProducer.Country}"
+                                 HorizontalAlignment="Center"
+                                 FontSize="20"
+                                 VerticalAlignment="Center" MinWidth="50" />
                         <Label Content="Headquarters:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                FontSize="24"
                                VerticalAlignment="Center" />
                         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedProducer.Headquarters}"
-                                   HorizontalAlignment="Center"
-                                   FontSize="20"
-                                   VerticalAlignment="Center" />
+                                 HorizontalAlignment="Center"
+                                 FontSize="20"
+                                 VerticalAlignment="Center" MinWidth="50" />
                         <Label Content="Founded:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"
                                FontSize="24"
                                VerticalAlignment="Center" />
-                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedProducer.Founded}" HorizontalAlignment="Center"
-                                   FontSize="20"
-                                   VerticalAlignment="Center" />
+                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedProducer.Founded}"
+                                 HorizontalAlignment="Center"
+                                 FontSize="20"
+                                 VerticalAlignment="Center" MinWidth="50" />
                         <Label Content="CEO:" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center"
                                FontSize="24"
                                VerticalAlignment="Center" />
-                        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding SelectedProducer.CEO}" HorizontalAlignment="Center"
-                                   FontSize="20"
-                                   VerticalAlignment="Center" />
-
+                        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding SelectedProducer.CEO}"
+                                 HorizontalAlignment="Center"
+                                 FontSize="20"
+                                 VerticalAlignment="Center" MinWidth="50" />
                     </Grid>
                 </Grid>
             </TabItem>

@@ -18,26 +18,43 @@ namespace WOZNY.PW.VM
     public class ProducersListVM : INotifyPropertyChanged
     {
         private IProducer _selectedProducer;
+
         public IProducer SelectedProducer
         {
             get => _selectedProducer;
             set
             {
+                var prevValue = _selectedProducer;
                 _selectedProducer = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Visibility"));
+
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedProducer"));
+
+                if (prevValue == null || value == null)
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Visibility"));
+
+                if (value != null && (prevValue != null && prevValue.Name != value.Name))
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Producers"));
             }
         }
-        public ObservableCollection<IProducer> Producers { get; }
+
+        public ObservableCollection<IProducer> Producers { get; private set; }
         public ICommand RemoveItemCommand => new Command(RemoveItem);
+        public ICommand AddItemCommand => new Command(AddItem);
+
 
         public string Visibility => SelectedProducer == null ? "Hidden" : "Visible";
 
 
         public ProducersListVM()
         {
+            DownloadProducers();
+        }
+
+        private void DownloadProducers()
+        {
             Producers = new ObservableCollection<IProducer>(BusinessLogic.Instance.GetAllProducers());
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -53,6 +70,15 @@ namespace WOZNY.PW.VM
                 Producers.Remove(SelectedProducer);
             else
                 MessageBox.Show("Nie wybrano żadnego elementu", "Uwaga!");
+        }
+
+        private void AddItem()
+        {
+            BusinessLogic.Instance.AddEmptyProducer();
+            DownloadProducers();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Producers"));
+            SelectedProducer = Producers.Last();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedProducer"));
         }
     }
 }

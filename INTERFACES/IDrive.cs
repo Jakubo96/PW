@@ -9,7 +9,7 @@ namespace Wozny.PW.INTERFACES
 {
     public interface IDrive
     {
-        HardDriveType Type { get; set; }
-        int Capacity { get; set; }
+        HardDriveType? Type { get; set; }
+        int? Capacity { get; set; }
     }
 }

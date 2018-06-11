@@ -30,9 +30,6 @@ namespace WOZNY.PW.WPF_UI
             ConfigInjector.InjectDllNameToBL();
 
             InitializeComponent();
-
-            ProductsTab.DataContext = new ProductsListVM();
-            ProducersTab.DataContext = new ProducersListVM();
         }
 
     }

@@ -8,6 +8,6 @@ namespace Wozny.PW.CORE
 {
     public enum ProducerName
     {
-        Dell, HP, Razer, Asus, Acer, Apple, Lenovo, Sony
+        Dell, HP, Razer, Asus, Acer, Apple, Lenovo, Sony, Unknown
     }
 }

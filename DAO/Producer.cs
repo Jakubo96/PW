@@ -8,12 +8,19 @@ using Wozny.PW.INTERFACES;
 
 namespace Wozny.PW.DAO
 {
-    public class Producer: IProducer
+    public class Producer : IProducer
     {
-        public ProducerName Name { get; set; }
+        private ProducerName? _name;
+
+        public ProducerName? Name
+        {
+            get => _name ?? ProducerName.Unknown;
+            set => _name = value;
+        }
+
         public string Country { get; set; }
         public string Headquarters { get; set; }
-        public int Founded { get; set; }
+        public int? Founded { get; set; }
         public string CEO { get; set; }
 
         public Producer(ProducerName name, string country, string headquarters, int founded, string ceo)
@@ -31,7 +38,8 @@ namespace Wozny.PW.DAO
 
         public override string ToString()
         {
-            return $"{nameof(Name)}: {Name}, {nameof(Country)}: {Country}, {nameof(Headquarters)}: {Headquarters}, {nameof(Founded)}: {Founded}, {nameof(CEO)}: {CEO}";
+            return
+                $"{nameof(Name)}: {Name}, {nameof(Country)}: {Country}, {nameof(Headquarters)}: {Headquarters}, {nameof(Founded)}: {Founded}, {nameof(CEO)}: {CEO}";
         }
     }
 }

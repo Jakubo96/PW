@@ -11,9 +11,9 @@ namespace Wozny.PW.DAO
     {
         public IProducer Producer { get; set; }
         public string Model { get; set; }
-        public double Price { get; set; }
+        public double? Price { get; set; }
         public string Processor { get; set; }
-        public float ScreenSize { get; set; }
+        public float? ScreenSize { get; set; }
         public IDrive Drive { get; set; }
 
         public Product(IProducer producer, string model, double price, string processor, float screenSize, IDrive drive)
@@ -26,8 +26,10 @@ namespace Wozny.PW.DAO
             Drive = drive;
         }
 
-        public Product()
+        public Product(IProducer producer, IDrive drive)
         {
+            Producer = producer;
+            Drive = drive;
         }
 
         public override string ToString()

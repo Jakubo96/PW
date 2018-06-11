@@ -9,10 +9,10 @@ namespace Wozny.PW.INTERFACES
 {
     public interface IProducer
     {
-        ProducerName Name { get; set; }
+        ProducerName? Name { get; set; }
         string Country { get; set; }
         string Headquarters { get; set; }
-        int Founded { get; set; }
+        int? Founded { get; set; }
         string CEO { get; set; }
     }
 }

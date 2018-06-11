@@ -10,5 +10,9 @@ namespace Wozny.PW.INTERFACES
     {
         IList<IProduct> Products { get; }
         IList<IProducer> Producers { get; }
+
+        void AddProduct(IProduct product);
+
+        void AddProducer(IProducer producer);
     }
 }

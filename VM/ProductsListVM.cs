@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 using Wozny.PW.BL;
+using Wozny.PW.DAO;
 using Wozny.PW.INTERFACES;
 using WOZNY.PW.VM.Annotations;
 
@@ -23,18 +24,33 @@ namespace WOZNY.PW.VM
             get => _selectedProduct;
             set
             {
+                var prevValue = _selectedProduct;
                 _selectedProduct = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Visibility"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedProduct"));   
+
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedProduct"));
+
+                if (prevValue == null || value == null)
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Visibility"));
+
+                if (value != null && (prevValue != null &&
+                                      (prevValue.Producer.Name != value.Producer.Name ||
+                                       prevValue.Model != value.Model)))
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Products"));
             }
         }
 
-        public ObservableCollection<IProduct> Products { get; }
+        public ObservableCollection<IProduct> Products { get; private set; }
         public ICommand RemoveItemCommand => new Command(RemoveItem);
+        public ICommand AddItemCommand => new Command(AddItem);
 
         public string Visibility => SelectedProduct == null ? "Hidden" : "Visible";
 
         public ProductsListVM()
+        {
+            DownloadProducts();
+        }
+
+        private void DownloadProducts()
         {
             Products = new ObservableCollection<IProduct>(BusinessLogic.Instance.GetAllProducts());
         }
@@ -55,9 +71,13 @@ namespace WOZNY.PW.VM
                 MessageBox.Show("Nie wybrano żadnego elementu", "Uwaga!");
         }
 
-        private void ShowState()
+        private void AddItem()
         {
-            MessageBox.Show("tst", "Info");
+            BusinessLogic.Instance.AddEmptyProduct();
+            DownloadProducts();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Products"));
+            SelectedProduct = Products.Last();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedProduct"));
         }
     }
 }

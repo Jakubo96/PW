@@ -53,6 +53,10 @@
       <Project>{AB766A23-4402-4881-AD85-1D8585461275}</Project>
       <Name>BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CORE\CORE.csproj">
+      <Project>{407AF60A-37F1-479F-8EE4-F212AE98E749}</Project>
+      <Name>CORE</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAO\DAO.csproj">
       <Project>{AEDF2BD0-E28D-47B0-95D1-077D3EA5A050}</Project>
       <Name>DAO</Name>
