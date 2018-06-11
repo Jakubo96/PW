@@ -12,7 +12,9 @@ namespace Wozny.PW.INTERFACES
         IList<IProducer> Producers { get; }
 
         void AddProduct(IProduct product);
-
         void AddProducer(IProducer producer);
+
+        void RemoveProduct(IProduct product);
+        void RemoveProducer(IProducer producer);
     }
 }

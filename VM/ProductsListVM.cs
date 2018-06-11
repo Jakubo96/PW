@@ -27,15 +27,15 @@ namespace WOZNY.PW.VM
                 var prevValue = _selectedProduct;
                 _selectedProduct = value;
 
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedProduct"));
+                OnPropertyChanged(nameof(SelectedProduct));
 
                 if (prevValue == null || value == null)
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Visibility"));
+                    OnPropertyChanged(nameof(Visibility));
 
                 if (value != null && (prevValue != null &&
                                       (prevValue.Producer.Name != value.Producer.Name ||
                                        prevValue.Model != value.Model)))
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Products"));
+                    OnPropertyChanged(nameof(Products));
             }
         }
 
@@ -66,7 +66,10 @@ namespace WOZNY.PW.VM
         private void RemoveItem()
         {
             if (SelectedProduct != null)
+            {
+                BusinessLogic.Instance.RemoveProduct(SelectedProduct);
                 Products.Remove(SelectedProduct);
+            }
             else
                 MessageBox.Show("Nie wybrano żadnego elementu", "Uwaga!");
         }
@@ -75,9 +78,9 @@ namespace WOZNY.PW.VM
         {
             BusinessLogic.Instance.AddEmptyProduct();
             DownloadProducts();
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Products"));
+            OnPropertyChanged(nameof(Products));
             SelectedProduct = Products.Last();
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedProduct"));
+            OnPropertyChanged(nameof(SelectedProduct));
         }
     }
 }

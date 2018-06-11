@@ -27,20 +27,19 @@ namespace WOZNY.PW.VM
                 var prevValue = _selectedProducer;
                 _selectedProducer = value;
 
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedProducer"));
+                OnPropertyChanged(nameof(SelectedProducer));
 
                 if (prevValue == null || value == null)
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Visibility"));
+                    OnPropertyChanged(nameof(Visibility));
 
                 if (value != null && (prevValue != null && prevValue.Name != value.Name))
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Producers"));
+                    OnPropertyChanged(nameof(Producers));
             }
         }
 
         public ObservableCollection<IProducer> Producers { get; private set; }
         public ICommand RemoveItemCommand => new Command(RemoveItem);
         public ICommand AddItemCommand => new Command(AddItem);
-
 
         public string Visibility => SelectedProducer == null ? "Hidden" : "Visible";
 
@@ -67,7 +66,10 @@ namespace WOZNY.PW.VM
         private void RemoveItem()
         {
             if (SelectedProducer != null)
+            {
+                BusinessLogic.Instance.RemoveProducer(SelectedProducer);
                 Producers.Remove(SelectedProducer);
+            }
             else
                 MessageBox.Show("Nie wybrano żadnego elementu", "Uwaga!");
         }
@@ -76,9 +78,9 @@ namespace WOZNY.PW.VM
         {
             BusinessLogic.Instance.AddEmptyProducer();
             DownloadProducers();
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Producers"));
+            OnPropertyChanged(nameof(Producers));
             SelectedProducer = Producers.Last();
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedProducer"));
+            OnPropertyChanged(nameof(SelectedProducer));
         }
     }
 }

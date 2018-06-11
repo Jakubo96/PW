@@ -51,14 +51,6 @@ namespace Wozny.PW.BL
             return _dao.Producers;
         }
 
-        public void ModifyProduct(IProduct product)
-        {
-        }
-
-        public void ModifyProducer(IProducer producer)
-        {
-        }
-
         public void AddEmptyProduct()
         {
             _dao.AddProduct(new Product(new Producer(), new Drive()));
@@ -66,7 +58,17 @@ namespace Wozny.PW.BL
 
         public void AddEmptyProducer()
         {
-            _dao.AddProducer(new Producer());    
+            _dao.AddProducer(new Producer());
+        }
+
+        public void RemoveProduct(IProduct product)
+        {
+            _dao.RemoveProduct(product);
+        }
+
+        public void RemoveProducer(IProducer producer)
+        {
+            _dao.RemoveProducer(producer);
         }
     }
 }

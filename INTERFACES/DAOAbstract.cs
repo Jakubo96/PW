@@ -23,6 +23,16 @@ namespace Wozny.PW.INTERFACES
             Producers.Add(producer);
         }
 
+        public void RemoveProduct(IProduct product)
+        {
+            Products.Remove(product);
+        }
+
+        public void RemoveProducer(IProducer producer)
+        {
+            Producers.Remove(producer);
+        }
+
         protected DAOAbstract() => InsertStartingRecords();
     }
 }
