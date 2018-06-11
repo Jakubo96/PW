@@ -102,17 +102,13 @@
       <Project>{407AF60A-37F1-479F-8EE4-F212AE98E749}</Project>
       <Name>CORE</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAOMock2\DAOMock2.csproj">
-      <Project>{1e36d86f-0d55-4656-9435-d0788176a528}</Project>
-      <Name>DAOMock2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAOMock\DAOMock.csproj">
-      <Project>{21ed444c-98b6-4c79-83a1-ef75de179d9c}</Project>
-      <Name>DAOMock</Name>
-    </ProjectReference>
     <ProjectReference Include="..\INTERFACES\INTERFACES.csproj">
       <Project>{9C29644A-1A57-479D-BACD-5EA35743975F}</Project>
       <Name>INTERFACES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VALIDATORS\VALIDATORS.csproj">
+      <Project>{1450a7b1-58e6-4d58-b986-859a25f6e840}</Project>
+      <Name>VALIDATORS</Name>
     </ProjectReference>
     <ProjectReference Include="..\VM\VM.csproj">
       <Project>{7AE46123-AF2F-460F-996E-920C410CB7C2}</Project>

@@ -58,4 +58,8 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)WPF_UI\$(OutDir)"
+copy "$(TargetPath)" "$(SolutionDir)UI\$(OutDir)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

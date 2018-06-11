@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3E19C8D7-D050-494B-A980-EDB9D79BEA87}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Wozny.PW.UI</RootNamespace>
-    <AssemblyName>UI</AssemblyName>
+    <ProjectGuid>{1450A7B1-58E6-4D58-B986-859A25F6E840}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WOZNY.PW.VALIDATORS</RootNamespace>
+    <AssemblyName>VALIDATORS</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,27 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainUI.cs" />
+    <Compile Include="CountryValidationRule.cs" />
+    <Compile Include="FoundedValidationRule.cs" />
+    <Compile Include="ProcessorValidationRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BL\BL.csproj">
-      <Project>{AB766A23-4402-4881-AD85-1D8585461275}</Project>
-      <Name>BL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CORE\CORE.csproj">
-      <Project>{407AF60A-37F1-479F-8EE4-F212AE98E749}</Project>
-      <Name>CORE</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\INTERFACES\INTERFACES.csproj">
-      <Project>{9C29644A-1A57-479D-BACD-5EA35743975F}</Project>
-      <Name>INTERFACES</Name>
-    </ProjectReference>
+    <Compile Include="PriceValidationRule.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

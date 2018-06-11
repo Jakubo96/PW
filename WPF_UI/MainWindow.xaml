@@ -6,6 +6,7 @@
         xmlns:vm="clr-namespace:WOZNY.PW.VM;assembly=VM"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:core="clr-namespace:Wozny.PW.CORE;assembly=CORE"
+        xmlns:validators="clr-namespace:WOZNY.PW.VALIDATORS;assembly=VALIDATORS"
         mc:Ignorable="d"
         Title="Computers" Height="600" Width="1000">
     <Window.Resources>
@@ -65,9 +66,9 @@
                         </ListBox>
                         <WrapPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5, 5">
                             <Button Content="Remove" Command="{Binding RemoveItemCommand}" Foreground="Red" Height="50"
-                                    Width="50" Margin="5, 5" />
+                                    Width="70" Margin="5, 5" FontSize="18" />
                             <Button Content="Add" Command="{Binding AddItemCommand}" Foreground="Green" Height="50"
-                                    Width="50" Margin="5, 5" />
+                                    Width="70" Margin="5, 5" FontSize="18" />
                         </WrapPanel>
                     </Grid>
                     <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
@@ -109,14 +110,14 @@
                                     <ControlTemplate>
                                         <StackPanel>
                                             <AdornedElementPlaceholder x:Name="textBox" />
-                                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+                                            <TextBlock FontSize="14" Text="{Binding ErrorContent}" Foreground="Red" />
                                         </StackPanel>
                                     </ControlTemplate>
                                 </Validation.ErrorTemplate>
                                 <TextBox.Text>
                                     <Binding Path="SelectedProduct.Price" UpdateSourceTrigger="PropertyChanged">
                                         <Binding.ValidationRules>
-                                            <vm:StringToIntValidationRule ValidationStep="RawProposedValue" />
+                                            <validators:PriceValidationRule ValidationStep="RawProposedValue" />
                                         </Binding.ValidationRules>
                                     </Binding>
                                 </TextBox.Text>
@@ -126,10 +127,26 @@
                         <Label Content="Processor:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"
                                FontSize="24"
                                VerticalAlignment="Center" />
-                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedProduct.Processor}"
+                        <TextBox Grid.Row="3" Grid.Column="1"
                                  HorizontalAlignment="Center"
                                  FontSize="20"
-                                 VerticalAlignment="Center" MinWidth="50" />
+                                 VerticalAlignment="Center" MinWidth="50">
+                            <Validation.ErrorTemplate>
+                                <ControlTemplate>
+                                    <StackPanel>
+                                        <AdornedElementPlaceholder x:Name="textBox" />
+                                        <TextBlock FontSize="14" Text="{Binding ErrorContent}" Foreground="Red" />
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Validation.ErrorTemplate>
+                            <TextBox.Text>
+                                <Binding Path="SelectedProduct.Processor" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validators:ProcessorValidationRule ValidationStep="RawProposedValue" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Label Content="Screen size:" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center"
                                FontSize="24"
                                VerticalAlignment="Center" />
@@ -185,9 +202,9 @@
                         </ListBox>
                         <WrapPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5, 5">
                             <Button Content="Remove" Command="{Binding RemoveItemCommand}" Foreground="Red" Height="50"
-                                    Width="50" Margin="5, 5" />
+                                    Width="70" Margin="5, 5" FontSize="18" />
                             <Button Content="Add" Command="{Binding AddItemCommand}" Foreground="Green" Height="50"
-                                    Width="50" Margin="5, 5" />
+                                    Width="70" Margin="5, 5" FontSize="18" />
                         </WrapPanel>
 
                     </Grid>
@@ -213,10 +230,26 @@
                         <Label Content="Country:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"
                                FontSize="24"
                                VerticalAlignment="Center" />
-                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedProducer.Country}"
+                        <TextBox Grid.Row="1" Grid.Column="1"
                                  HorizontalAlignment="Center"
                                  FontSize="20"
-                                 VerticalAlignment="Center" MinWidth="50" />
+                                 VerticalAlignment="Center" MinWidth="50">
+                            <Validation.ErrorTemplate>
+                                <ControlTemplate>
+                                    <StackPanel>
+                                        <AdornedElementPlaceholder x:Name="textBox" />
+                                        <TextBlock FontSize="14" Text="{Binding ErrorContent}" Foreground="Red" />
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Validation.ErrorTemplate>
+                            <TextBox.Text>
+                                <Binding Path="SelectedProducer.Country" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validators:CountryValidationRule ValidationStep="RawProposedValue" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Label Content="Headquarters:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                                FontSize="24"
                                VerticalAlignment="Center" />
@@ -227,10 +260,26 @@
                         <Label Content="Founded:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"
                                FontSize="24"
                                VerticalAlignment="Center" />
-                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedProducer.Founded}"
+                        <TextBox Grid.Row="3" Grid.Column="1"
                                  HorizontalAlignment="Center"
                                  FontSize="20"
-                                 VerticalAlignment="Center" MinWidth="50" />
+                                 VerticalAlignment="Center" MinWidth="50">
+                            <Validation.ErrorTemplate>
+                                <ControlTemplate>
+                                    <StackPanel>
+                                        <AdornedElementPlaceholder x:Name="textBox" />
+                                        <TextBlock FontSize="14" Text="{Binding ErrorContent}" Foreground="Red" />
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Validation.ErrorTemplate>
+                            <TextBox.Text>
+                                <Binding Path="SelectedProducer.Founded" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validators:FoundedValidationRule ValidationStep="RawProposedValue" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Label Content="CEO:" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center"
                                FontSize="24"
                                VerticalAlignment="Center" />
