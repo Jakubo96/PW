@@ -67,8 +67,11 @@
                         <WrapPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5, 5">
                             <Button Content="Remove" Command="{Binding RemoveItemCommand}" Foreground="Red" Height="50"
                                     Width="70" Margin="5, 5" FontSize="18" />
-                            <Button Content="Add" Command="{Binding AddItemCommand}" Foreground="Green" Height="50"
+                            <Button Content="Add" Command="{Binding AddItemCommand}" Foreground="Blue" Height="50"
                                     Width="70" Margin="5, 5" FontSize="18" />
+                            <Button Content="Confirm" Command="{Binding ConfirmItemCommand}" Foreground="Green"
+                                    Height="50"
+                                    Width="70" Margin="5, 5" FontSize="18" Visibility="{Binding ConfirmVisibility}" />
                         </WrapPanel>
                     </Grid>
                     <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
@@ -117,7 +120,8 @@
                                 <TextBox.Text>
                                     <Binding Path="SelectedProduct.Price" UpdateSourceTrigger="PropertyChanged">
                                         <Binding.ValidationRules>
-                                            <validators:PriceValidationRule ValidationStep="RawProposedValue" />
+                                            <validators:PriceValidationRule ValidationStep="RawProposedValue"
+                                                                            ValidatesOnTargetUpdated="True" />
                                         </Binding.ValidationRules>
                                     </Binding>
                                 </TextBox.Text>
@@ -142,7 +146,8 @@
                             <TextBox.Text>
                                 <Binding Path="SelectedProduct.Processor" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
-                                        <validators:ProcessorValidationRule ValidationStep="RawProposedValue" />
+                                        <validators:ProcessorValidationRule ValidationStep="RawProposedValue"
+                                                                            ValidatesOnTargetUpdated="True" />
                                     </Binding.ValidationRules>
                                 </Binding>
                             </TextBox.Text>
@@ -203,8 +208,11 @@
                         <WrapPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5, 5">
                             <Button Content="Remove" Command="{Binding RemoveItemCommand}" Foreground="Red" Height="50"
                                     Width="70" Margin="5, 5" FontSize="18" />
-                            <Button Content="Add" Command="{Binding AddItemCommand}" Foreground="Green" Height="50"
+                            <Button Content="Add" Command="{Binding AddItemCommand}" Foreground="Blue" Height="50"
                                     Width="70" Margin="5, 5" FontSize="18" />
+                            <Button Content="Confirm" Command="{Binding ConfirmProducerCommand}" Foreground="Green"
+                                    Height="50"
+                                    Width="70" Margin="5, 5" FontSize="18" Visibility="{Binding ConfirmVisibility}" />
                         </WrapPanel>
 
                     </Grid>
@@ -233,7 +241,7 @@
                         <TextBox Grid.Row="1" Grid.Column="1"
                                  HorizontalAlignment="Center"
                                  FontSize="20"
-                                 VerticalAlignment="Center" MinWidth="50">
+                                 VerticalAlignment="Center" MinWidth="50" Name="Country">
                             <Validation.ErrorTemplate>
                                 <ControlTemplate>
                                     <StackPanel>
@@ -245,7 +253,8 @@
                             <TextBox.Text>
                                 <Binding Path="SelectedProducer.Country" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
-                                        <validators:CountryValidationRule ValidationStep="RawProposedValue" />
+                                        <validators:CountryValidationRule ValidationStep="RawProposedValue"
+                                                                          ValidatesOnTargetUpdated="True" />
                                     </Binding.ValidationRules>
                                 </Binding>
                             </TextBox.Text>
@@ -275,7 +284,8 @@
                             <TextBox.Text>
                                 <Binding Path="SelectedProducer.Founded" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
-                                        <validators:FoundedValidationRule ValidationStep="RawProposedValue" />
+                                        <validators:FoundedValidationRule ValidationStep="RawProposedValue"
+                                                                          ValidatesOnTargetUpdated="True" />
                                     </Binding.ValidationRules>
                                 </Binding>
                             </TextBox.Text>

@@ -17,6 +17,8 @@ namespace WOZNY.PW.VM
 {
     public class ProducersListVM : INotifyPropertyChanged
     {
+        private IProducer _producerToConfirm;
+
         private IProducer _selectedProducer;
 
         public IProducer SelectedProducer
@@ -28,6 +30,7 @@ namespace WOZNY.PW.VM
                 _selectedProducer = value;
 
                 OnPropertyChanged(nameof(SelectedProducer));
+                OnPropertyChanged(nameof(ConfirmVisibility));
 
                 if (prevValue == null || value == null)
                     OnPropertyChanged(nameof(Visibility));
@@ -41,7 +44,12 @@ namespace WOZNY.PW.VM
         public ICommand RemoveItemCommand => new Command(RemoveItem);
         public ICommand AddItemCommand => new Command(AddItem);
 
+        public ICommand ConfirmProducerCommand => new Command(ConfirmProducer);
+
         public string Visibility => SelectedProducer == null ? "Hidden" : "Visible";
+
+        public string ConfirmVisibility =>
+            _producerToConfirm != null && _producerToConfirm == SelectedProducer ? "Visible" : "Hidden";
 
 
         public ProducersListVM()
@@ -76,11 +84,24 @@ namespace WOZNY.PW.VM
 
         private void AddItem()
         {
-            BusinessLogic.Instance.AddEmptyProducer();
-            DownloadProducers();
-            OnPropertyChanged(nameof(Producers));
+            if (_producerToConfirm != null)
+            {
+                Producers.Remove(_producerToConfirm);
+            }
+
+            Producers.Add(new Producer());
             SelectedProducer = Producers.Last();
+            _producerToConfirm = SelectedProducer;
+            OnPropertyChanged(nameof(ConfirmVisibility));
             OnPropertyChanged(nameof(SelectedProducer));
+        }
+
+        private void ConfirmProducer()
+        {
+            BusinessLogic.Instance.AddProducer(_producerToConfirm);
+
+            _producerToConfirm = null;
+            OnPropertyChanged(nameof(ConfirmVisibility));
         }
     }
 }

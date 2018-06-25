@@ -40,25 +40,9 @@ namespace Wozny.PW.BL
         private static BusinessLogic _instance;
         public static BusinessLogic Instance => _instance ?? (_instance = new BusinessLogic());
 
-        public IEnumerable<IProduct> GetAllProducts()
-        {
-            return _dao.Products;
-        }
+        public IEnumerable<IProduct> GetAllProducts() => _dao.Products;
 
-        public IEnumerable<IProducer> GetAllProducers()
-        {
-            return _dao.Producers;
-        }
-
-        public void AddEmptyProduct()
-        {
-//            _dao.AddProduct(new Product(new Producer(), new Drive()));
-        }
-
-        public void AddEmptyProducer()
-        {
-//            _dao.AddProducer(new Producer());
-        }
+        public IEnumerable<IProducer> GetAllProducers() => _dao.Producers;
 
         public void RemoveProduct(IProduct product)
         {
@@ -68,6 +52,16 @@ namespace Wozny.PW.BL
         public void RemoveProducer(IProducer producer)
         {
             _dao.RemoveProducer(producer);
+        }
+
+        public void AddProduct(IProduct product)
+        {
+            _dao.AddProduct(product);
+        }
+
+        public void AddProducer(IProducer producer)
+        {
+            _dao.AddProducer(producer);
         }
     }
 }
