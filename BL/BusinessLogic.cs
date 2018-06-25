@@ -5,9 +5,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Wozny.PW.DAO;
-using Wozny.PW.DAOMock;
-using Wozny.PW.DAOMock2;
 using Wozny.PW.INTERFACES;
 
 namespace Wozny.PW.BL
@@ -39,7 +36,9 @@ namespace Wozny.PW.BL
         }
 
         private IDAO _dao;
-        public static BusinessLogic Instance { get; } = new BusinessLogic();
+
+        private static BusinessLogic _instance;
+        public static BusinessLogic Instance => _instance ?? (_instance = new BusinessLogic());
 
         public IEnumerable<IProduct> GetAllProducts()
         {
@@ -53,12 +52,12 @@ namespace Wozny.PW.BL
 
         public void AddEmptyProduct()
         {
-            _dao.AddProduct(new Product(new Producer(), new Drive()));
+//            _dao.AddProduct(new Product(new Producer(), new Drive()));
         }
 
         public void AddEmptyProducer()
         {
-            _dao.AddProducer(new Producer());
+//            _dao.AddProducer(new Producer());
         }
 
         public void RemoveProduct(IProduct product)
